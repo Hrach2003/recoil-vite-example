@@ -4,27 +4,16 @@ import {
   Todo,
   todoFilterAtom,
   todoFilterSelector,
-  todoStatisticSelector,
 } from "../services/todo.service";
 import { updateUserIdSelector } from "../services/user.service";
+import { TodoStats } from "./TodoStats";
 
 export const Toolbar = () => {
-  const { completed, persent, total } = useRecoilValue(todoStatisticSelector);
   const [userId, setUserId] = useRecoilState(updateUserIdSelector);
-  const keys = Object.keys(
-    useRecoilValue(todoFilterSelector)[0]
-  ) as (keyof Todo)[];
   const setFilterType = useSetRecoilState(todoFilterAtom);
   return (
     <div className="w-full">
-      <div className="flex justify-end text-right mb-2">
-        <div>
-          <p>
-            Number of completed todos: {completed}/{total}
-          </p>
-          <p>Completed: {persent}%</p>
-        </div>
-      </div>
+      <TodoStats />
       <div className="flex items-center">
         <div className="flex-grow">
           Current User:{" "}
