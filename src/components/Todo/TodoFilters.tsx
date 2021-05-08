@@ -1,7 +1,7 @@
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { todoFilterAtom } from "../services/todo.service";
-import { updateUserIdSelector } from "../services/user.service";
+import { todoFilterAtom } from "../../services/todo.service";
+import { updateUserIdSelector } from "../../services/user.service";
 
 export const TodoFilters = () => {
   const [userId, setUserId] = useRecoilState(updateUserIdSelector);
