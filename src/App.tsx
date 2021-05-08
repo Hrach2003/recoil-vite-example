@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { atom, useRecoilState } from "recoil";
 import { TodoList } from "./components/TodoList";
 import { Toolbar } from "./components/Toolbar";
 
