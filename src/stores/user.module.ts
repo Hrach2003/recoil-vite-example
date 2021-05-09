@@ -1,5 +1,5 @@
 import { getUserById } from "./../services/user.service";
-import { atom, selector } from "recoil";
+import { atom, selector, selectorFamily } from "recoil";
 import { User } from "../types";
 
 const currentUserAtom = atom({
@@ -18,11 +18,11 @@ export const updateUserIdSelector = selector<number>({
   },
 });
 
-export const currentUserInfoSelector = selector({
+export const currentUserInfoSelector = selectorFamily({
   key: "current-user-info",
-  get: async ({ get }) => {
+  get: (field: keyof User) => async ({ get }) => {
     const userId = get(currentUserAtom);
     const userData = await getUserById(userId);
-    return userData;
+    return userData[field];
   },
 });

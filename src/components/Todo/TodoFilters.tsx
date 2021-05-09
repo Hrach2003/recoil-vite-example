@@ -2,41 +2,43 @@ import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { todoFilterAtom } from "../../stores/todo.module";
 import { updateUserIdSelector } from "../../stores/user.module";
+import { Button } from "../Button";
 
-export const TodoFilters = () => {
+const CurrentUser = () => {
   const [userId, setUserId] = useRecoilState(updateUserIdSelector);
+  return (
+    <div className="h-full items-center flex">
+      <span className="text-gray-200 text-base font-light">current user: </span>
+      <input
+        type="number"
+        value={userId}
+        onChange={(e) => setUserId(e.currentTarget.valueAsNumber)}
+        className="w-12 border-2 rounded focus:outline-none border-lightblue-600 text-black text-right"
+      />
+    </div>
+  );
+};
+
+const FilterButtons = () => {
   const setFilterType = useSetRecoilState(todoFilterAtom);
   return (
-    <div className="flex items-center">
-      <div className="flex-grow">
-        Current User:{" "}
-        <input
-          type="number"
-          value={userId}
-          onChange={(e) => setUserId(e.currentTarget.valueAsNumber)}
-          className="w-12 border-2 rounded focus:outline-none border-lightblue-600 text-black text-right"
-        />
-      </div>
-      <div>
-        <button
-          className="ml-2 px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:bg-lightblue-800 hover:bg-lightblue-600 text-white focus:ring-4 ring-lightblue-300"
-          onClick={() => setFilterType("completed")}
-        >
-          Completed Todos
-        </button>
+    <div>
+      <Button onClick={() => setFilterType("completed")}>
+        Completed Todos
+      </Button>
+      <Button onClick={() => setFilterType("userId")}>My Todos</Button>
+      <Button onClick={() => setFilterType(null)}>All</Button>
+    </div>
+  );
+};
 
-        <button
-          className="ml-2 px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:bg-lightblue-800 hover:bg-lightblue-600 text-white focus:ring-4 ring-lightblue-300"
-          onClick={() => setFilterType("userId")}
-        >
-          My Todos
-        </button>
-        <button
-          className="ml-2 px-3 py-2 bg-gray-700 rounded-md focus:outline-none focus:bg-lightblue-800 hover:bg-lightblue-600 text-white focus:ring-4 ring-lightblue-300"
-          onClick={() => setFilterType(null)}
-        >
-          All
-        </button>
+export const TodoFilters = () => {
+  return (
+    <div className="px-5 py-2">
+      <h1 className="text-2xl text-center mb-3">Todo Filters</h1>
+      <div className="flex justify-between items-center">
+        <CurrentUser />
+        <FilterButtons />
       </div>
     </div>
   );

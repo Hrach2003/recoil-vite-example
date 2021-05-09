@@ -16,10 +16,10 @@ export const TodoItem = React.memo(({ id }: { id: number }) => {
     );
   };
   return (
-    <div className="w-full flex my-3">
+    <div className="w-full flex">
       <label
         htmlFor={String(todo.id)}
-        className="flex rounded bg-gray-800 hover:bg-gray-700 cursor-pointer flex-grow ring-2 ring-lightblue-900 items-center py-2 px-3 justify-between"
+        className="flex rounded-lg bg-gray-900 hover:bg-gray-700 cursor-pointer flex-grow items-center py-2 px-3 justify-between"
       >
         <div>{todo.title}</div>
         <input
