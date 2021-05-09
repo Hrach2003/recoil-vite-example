@@ -1,44 +1,43 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
 import { currentUserInfoSelector } from "../../stores/user.module";
+import { User } from "../../types";
+import { Button } from "../Button";
+import { LightText } from "../LightText";
+
+type UserFieldTypes = { field: keyof User };
+const UserField: React.FC<UserFieldTypes> = ({ field }) => {
+  const userInfo = useRecoilValue(currentUserInfoSelector(field));
+  return <Button disabled>{userInfo}</Button>;
+};
 
 export const UserInfo = () => {
-  const userData = useRecoilValue(currentUserInfoSelector);
   return (
-    <div className="px-5 py-2 ring-2 ring-lightblue-900 rounded-lg">
-      <h1 className="text-2xl text-center mb-3 font-semibold">
-        Current Active User
-      </h1>
+    <div className="px-5 py-2 space-y-2">
+      <h1 className="text-2xl text-center mb-3">Current Active User</h1>
       <div>
-        <h3 className="text-xl font-semibold">
-          <span className="text-gray-200 text-base font-light">user: </span>
-          {userData.username}{" "}
-          <span className="text-gray-200">( {userData.name} )</span>
-        </h3>
+        <p className="text-lg">
+          <LightText>user: </LightText>
+          <UserField field="name" />
+        </p>
       </div>
       <div>
-        <h3 className="text-xl font-semibold">
-          <span className="text-gray-200 text-base font-light">email: </span>
-          {userData.email}{" "}
-        </h3>
+        <p className="text-lg">
+          <LightText>email: </LightText>
+          <UserField field="email" />
+        </p>
       </div>
       <div>
-        <h3 className="text-xl font-semibold">
-          <span className="text-gray-200 text-base font-light">phone: </span>
-          {userData.phone}{" "}
-        </h3>
+        <p className="text-lg">
+          <LightText>phone: </LightText>
+          <UserField field="phone" />
+        </p>
       </div>
       <div>
-        <h3 className="text-xl font-semibold">
-          <span className="text-gray-200 text-base font-light">website: </span>
-          <a
-            href={userData.website}
-            rel="noopener"
-            className="underline text-blue-400"
-          >
-            {userData.website}
-          </a>
-        </h3>
+        <p className="text-lg">
+          <LightText>website: </LightText>
+          <UserField field="website" />
+        </p>
       </div>
     </div>
   );
