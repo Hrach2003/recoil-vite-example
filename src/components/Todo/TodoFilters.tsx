@@ -14,7 +14,7 @@ export const TodoFilters = () => {
           type="number"
           value={userId}
           onChange={(e) => setUserId(e.currentTarget.valueAsNumber)}
-          className="w-12 border-2 rounded focus:outline-none border-gray-400 text-black text-right"
+          className="w-12 border-2 rounded focus:outline-none border-lightblue-600 text-black text-right"
         />
       </div>
       <div>
