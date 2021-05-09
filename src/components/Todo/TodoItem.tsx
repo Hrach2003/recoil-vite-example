@@ -19,7 +19,7 @@ export const TodoItem = React.memo(({ id }: { id: number }) => {
     <div className="w-full flex my-3">
       <label
         htmlFor={String(todo.id)}
-        className="flex rounded bg-indigo-200 hover:bg-indigo-50 cursor-pointer flex-grow ring-4 items-center py-2 px-3 justify-between"
+        className="flex rounded bg-gray-800 hover:bg-gray-700 cursor-pointer flex-grow ring-2 ring-lightblue-900 items-center py-2 px-3 justify-between"
       >
         <div>{todo.title}</div>
         <input
