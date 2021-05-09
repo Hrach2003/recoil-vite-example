@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { todoStatisticSelector } from "../../services/todo.service";
+import { todoStatisticSelector } from "../../stores/todo.module";
 
 export const TodoStats = () => {
   const { completed, persent, total } = useRecoilValue(todoStatisticSelector);

@@ -1,7 +1,7 @@
 import produce from "immer";
 import React from "react";
 import { useRecoilState, useSetRecoilState } from "recoil";
-import { singleTodoSelector, todoListAtom } from "../../services/todo.service";
+import { singleTodoSelector, todoListAtom } from "../../stores/todo.module";
 
 export const TodoItem = React.memo(({ id }: { id: number }) => {
   const [todo, setTodo] = useRecoilState(singleTodoSelector(id));

@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { currentUserInfoSelector } from "../../services/user.service";
+import { currentUserInfoSelector } from "../../stores/user.module";
 
 export const UserInfo = () => {
   const userData = useRecoilValue(currentUserInfoSelector);

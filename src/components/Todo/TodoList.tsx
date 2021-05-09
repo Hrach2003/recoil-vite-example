@@ -1,6 +1,6 @@
 import React from "react";
 import { useRecoilValue } from "recoil";
-import { todoFilterSelector } from "../../services/todo.service";
+import { todoFilterSelector } from "../../stores/todo.module";
 import { TodoItem } from "./TodoItem";
 
 export const TodoList = () => {
