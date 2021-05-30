@@ -1,3 +1,7 @@
+import { DetailedHTMLProps, ButtonHTMLAttributes } from "react";
+
+export type HTMLType<T> = DetailedHTMLProps<ButtonHTMLAttributes<T>, T>;
+
 export type Todo = {
   userId: number;
   id: number;

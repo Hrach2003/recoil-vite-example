@@ -1,6 +1,7 @@
 import React from "react";
+import { HTMLType } from "../types";
 
-export const Button: React.FC<{ [k: string]: any }> = ({
+export const Button: React.FC<HTMLType<HTMLButtonElement>> = ({
   children,
   ...props
 }) => {
