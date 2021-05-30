@@ -22,12 +22,12 @@ export const TodoStats = () => {
   return (
     <div className="px-5 py-2 space-y-2">
       <h1 className="text-2xl text-center mb-3">Todo Stats</h1>
-      <div>
-        <p>
+      <div className="space-y-2">
+        <p className="flex md:justify-between justify-center items-center">
           <LightText>number of completed todos: </LightText>
           <CompletedTotalRatio />
         </p>
-        <p>
+        <p className="flex md:justify-between justify-center items-center">
           <LightText>completed: </LightText>
           <PersentCompleted />
         </p>

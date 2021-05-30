@@ -8,10 +8,10 @@ import { UserInfo } from "./components/User/UserInfo";
 
 function App() {
   return (
-    <div className="bg-gray-900 text-white h-screen py-4 overflow-hidden">
-      <div className="w-11/12 mx-auto h-full">
-        <div className="flex space-x-5 h-full">
-          <div className="w-2/5 h-full">
+    <div className="bg-gray-900 text-white lg:h-screen md:py-4 p-2 overflow-hidden">
+      <div className="lg:w-11/12 mx-auto h-full">
+        <div className="md:flex md:space-x-5 h-full">
+          <div className="md:w-2/5 w-full h-full">
             <Box>
               <TodoFilters />
             </Box>
@@ -27,7 +27,7 @@ function App() {
             </Box>
           </div>
 
-          <div className="w-3/5 h-full">
+          <div className="md:w-3/5 w-full h-full">
             <Box className="h-full">
               <Suspense fallback={<Loading />}>
                 <TodoList />

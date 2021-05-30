@@ -7,8 +7,10 @@ import { Button } from "../Button";
 const CurrentUser = () => {
   const [userId, setUserId] = useRecoilState(updateUserIdSelector);
   return (
-    <div className="h-full items-center flex">
-      <span className="text-gray-200 text-base font-light">current user: </span>
+    <div className="h-full items-center flex justify-center mb-2 lg:mb-0">
+      <span className="text-gray-200 text-base font-light mr-2">
+        current user:
+      </span>
       <input
         type="number"
         value={userId}
@@ -22,7 +24,7 @@ const CurrentUser = () => {
 const FilterButtons = () => {
   const setFilterType = useSetRecoilState(todoFilterAtom);
   return (
-    <div>
+    <div className="flex justify-between lg:block">
       <Button onClick={() => setFilterType("completed")}>
         Completed Todos
       </Button>
@@ -36,7 +38,7 @@ export const TodoFilters = () => {
   return (
     <div className="px-5 py-2">
       <h1 className="text-2xl text-center mb-3">Todo Filters</h1>
-      <div className="flex justify-between items-center">
+      <div className="lg:flex justify-between items-center">
         <CurrentUser />
         <FilterButtons />
       </div>

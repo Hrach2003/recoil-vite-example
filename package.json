@@ -2,7 +2,7 @@
   "name": "try-vite",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite --open --host",
     "build": "tsc && vite build",
     "serve": "vite preview --open"
   },

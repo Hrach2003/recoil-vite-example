@@ -31,9 +31,9 @@ export const TodoItem = React.memo(({ id }: { id: number }) => {
       </label>
       <button
         onClick={removeTodo}
-        className="focus:ring-4 text-white ring-red-700 bg-red-800 ml-3 ring-opacity-80 focus:outline-none py-2 px-2 rounded"
+        className="focus:ring-4 ring-opacity-60 text-xl lg:text-2xl text-white ring-red-700 bg-red-800 ml-3 focus:outline-none py-2 px-2 rounded"
       >
-        Del
+        &#9762;
       </button>
     </div>
   );
