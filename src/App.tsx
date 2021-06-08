@@ -1,12 +1,16 @@
 import React, { Suspense } from "react";
+import { useResetRecoilState } from "recoil";
 import { Box } from "./components/Box";
+import { Button } from "./components/Button";
 import { Loading } from "./components/Loading";
 import { TodoFilters } from "./components/Todo/TodoFilters";
 import { TodoList } from "./components/Todo/TodoList";
 import { TodoStats } from "./components/Todo/TodoStats";
 import { UserInfo } from "./components/User/UserInfo";
+import { todoListAtom } from "./stores/todo.module";
 
 function App() {
+  const resetTodoList = useResetRecoilState(todoListAtom);
   return (
     <div className="bg-gray-900 text-white lg:h-screen md:py-4 p-2 overflow-hidden">
       <div className="lg:w-11/12 mx-auto h-full">
@@ -25,6 +29,9 @@ function App() {
                 <UserInfo />
               </Suspense>
             </Box>
+            <div className="flex justify-center lg:justify-end mb-5">
+              <Button onClick={resetTodoList}>Refresh</Button>
+            </div>
           </div>
 
           <div className="md:w-3/5 w-full h-full">
